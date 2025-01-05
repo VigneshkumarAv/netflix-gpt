@@ -1,21 +1,46 @@
-import { signOut } from "firebase/auth";
-import React from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useEffect } from "react";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const handleSignout = () => {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
+      .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
   };
+
+  useEffect(() => {
+    //whenever sign in, sign up, sign out is done this will be called and on every render
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div className="absolute w-screen px-12 py-6 header-container flex justify-between">
@@ -38,7 +63,11 @@ const Header = () => {
       </svg>
       {user && (
         <div className="flex">
-          <img alt="usericon" src={user?.photoURL} className="rounded-2xl" />
+          <img
+            alt="usericon"
+            src="/avatar.png"
+            className="rounded-2xl w-12 h-12 mr-2"
+          />
           <button onClick={handleSignout}>sign out</button>
         </div>
       )}
