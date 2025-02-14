@@ -27,3 +27,4 @@
 - Fetch data for trailer video
 - Embedded the youtibe video and auto play, mute
 - Tailwind classes to container
+- Build Secondary component with movie list

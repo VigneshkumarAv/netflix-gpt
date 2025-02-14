@@ -13,10 +13,11 @@ const VideoBackground = (props) => {
       <iframe
         className="w-full aspect-video"
         src={
-          "https://www.youtube.com/embed/" + trailerId + "?&autoplay=1&mute=1"
+          "https://www.youtube.com/embed/" +
+          trailerId +
+          "?&autoplay=1&mute=1&loop=1"
         }
         title="YouTube video player"
-        frameBorder="0"
         fullScreen
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
       ></iframe>
