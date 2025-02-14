@@ -10,7 +10,7 @@
 - useRef Hook
 - Firebase setup
 - Deploying app to prod
-- Create signup user account
+- Create signup user account & Signup API
 - Implement signin API
 - Created redux store with userSlice
 - Implemented sign out 
@@ -19,3 +19,11 @@
 - BugFix - if the user is not logged in redirect /browse to login page and vice-versa
 - unSubscribed to the onauthstatechanged callback
 - ADD hardcoded values to constants file
+- Register TMDB api & create an app & get access token
+- Get data from tmdb now playing movie list api
+- Create custom hooks for nowPlaying movie
+- Created movie slice
+- Planning for main container and secondary container
+- Fetch data for trailer video
+- Embedded the youtibe video and auto play, mute
+- Tailwind classes to container
