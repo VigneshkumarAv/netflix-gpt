@@ -28,3 +28,6 @@
 - Embedded the youtibe video and auto play, mute
 - Tailwind classes to container
 - Build Secondary component with movie list
+- GPT search page
+- GPT search bar
+- (BONUS) Multi-language Feature in our App
