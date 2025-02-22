@@ -6,7 +6,7 @@ import { LANDING_BG_IMAGE } from "../utils/constants";
 const GptSearch = () => {
   return (
     <div>
-      <div className="-z-10 absolute">
+      <div className="-z-10 fixed">
         <img src={LANDING_BG_IMAGE} alt="bg_image" />
       </div>
       <GptSearchBar />

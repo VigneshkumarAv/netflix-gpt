@@ -18,7 +18,6 @@ const VideoBackground = (props) => {
           "?&autoplay=1&mute=1&loop=1"
         }
         title="YouTube video player"
-        fullScreen
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
       ></iframe>
     </div>

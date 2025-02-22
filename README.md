@@ -31,3 +31,5 @@
 - GPT search page
 - GPT search bar
 - (BONUS) Multi-language Feature in our App
+- TMDB API call for user entered movie
+- search results from TMDB
